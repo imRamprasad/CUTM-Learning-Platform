@@ -24,7 +24,7 @@ CUTM-Learning-Platform
 │       ├── src/
 │       ├── pom.xml
 │       ├── mvnw
-│       └── mvnw.cmd
+│       └── mvnw.cmd 
 │
 ├── frontend/
 │   ├── src/
