@@ -1,0 +1,112 @@
+# CodeHub CODEOWNERS - Team Responsibility Matrix
+# Last updated: March 11, 2026
+# Tech Lead: <tech-lead-github-handle>
+#
+# This file defines code ownership to prevent merge conflicts.
+# Each team member owns their assigned module exclusively.
+# PR approval required from code owner before merge.
+
+# ================================================================================
+# BACKEND CODE OWNERSHIP
+# ================================================================================
+
+# Authentication Module - Dev 1
+backend/platform/src/main/java/com/cutm/platform/security/**     @dev1
+backend/platform/src/main/java/com/cutm/platform/controllers/AuthController.java  @dev1
+backend/platform/src/main/java/com/cutm/platform/services/AuthService.java  @dev1
+backend/platform/src/main/java/com/cutm/platform/models/User.java  @dev1
+backend/platform/src/main/java/com/cutm/platform/repositories/UserRepository.java  @dev1
+
+# Problems Module - Dev 2
+backend/platform/src/main/java/com/cutm/platform/controllers/ProblemController.java  @dev2
+backend/platform/src/main/java/com/cutm/platform/services/ProblemService.java  @dev2
+backend/platform/src/main/java/com/cutm/platform/models/Problem.java  @dev2
+backend/platform/src/main/java/com/cutm/platform/repositories/ProblemRepository.java  @dev2
+
+# Submissions Module - Dev 3
+backend/platform/src/main/java/com/cutm/platform/controllers/SubmissionController.java  @dev3
+backend/platform/src/main/java/com/cutm/platform/services/SubmissionService.java  @dev3
+backend/platform/src/main/java/com/cutm/platform/models/Submission.java  @dev3
+backend/platform/src/main/java/com/cutm/platform/repositories/SubmissionRepository.java  @dev3
+
+# Contests Module - Dev 4
+backend/platform/src/main/java/com/cutm/platform/controllers/ContestController.java  @dev4
+backend/platform/src/main/java/com/cutm/platform/services/ContestService.java  @dev4
+backend/platform/src/main/java/com/cutm/platform/models/Contest.java  @dev4
+backend/platform/src/main/java/com/cutm/platform/repositories/ContestRepository.java  @dev4
+
+# ================================================================================
+# FRONTEND CODE OWNERSHIP
+# ================================================================================
+
+# Dashboard & Profile - Dev 5
+frontend/src/components/Dashboard/**  @dev5
+frontend/src/components/Profile/**  @dev5
+frontend/src/pages/Dashboard.js  @dev5
+frontend/src/pages/Profile.js  @dev5
+
+# Problems & Contests (Frontend) - Dev 6
+frontend/src/components/Problems/**  @dev6
+frontend/src/components/Contests/**  @dev6
+frontend/src/pages/Problems.js  @dev6
+frontend/src/pages/ProblemDetail.js  @dev6
+frontend/src/pages/Contests.js  @dev6
+
+# Leaderboard & Discussions - Dev 7
+frontend/src/components/Leaderboard/**  @dev7
+frontend/src/components/Discussions/**  @dev7
+frontend/src/pages/Leaderboard.js  @dev7
+frontend/src/pages/Discussions.js  @dev7
+
+# ================================================================================
+# SHARED CODE (Requires Tech Lead Review)
+# ================================================================================
+
+# Configuration and Infrastructure
+backend/platform/pom.xml  @tech-lead
+backend/platform/src/main/java/com/cutm/platform/config/**  @tech-lead
+backend/platform/src/main/resources/**  @tech-lead
+
+frontend/package.json  @tech-lead
+frontend/public/**  @tech-lead
+frontend/src/index.js  @tech-lead
+frontend/src/App.js  @tech-lead
+
+# Security and Exception Handling
+backend/platform/src/main/java/com/cutm/platform/exception/**  @tech-lead
+backend/platform/src/main/java/com/cutm/platform/config/SecurityConfig.java  @tech-lead
+
+# Shared DTOs and Utilities
+backend/platform/src/main/java/com/cutm/platform/dto/**  @tech-lead
+frontend/src/utils/**  @tech-lead
+frontend/src/services/apiClient.js  @tech-lead
+
+# Authentication Context (Frontend)
+frontend/src/contexts/AuthContext.js  @dev1 @tech-lead
+frontend/src/hooks/useAuth.js  @dev1 @tech-lead
+
+# Documentation (Everyone can modify)
+*.md  @tech-lead
+docs/**  @tech-lead
+.github/**  @tech-lead
+
+# Testing (Each dev tests their own code)
+backend/platform/src/test/java/com/cutm/platform/**  @dev1 @dev2 @dev3 @dev4
+frontend/src/**/*.test.js  @dev5 @dev6 @dev7
+
+# ================================================================================
+# CONFLICT PREVENTION RULES
+# ================================================================================
+# 1. Never modify files outside your assigned package
+# 2. If you need to modify shared code, ping in Slack first
+# 3. Create feature branches before coding
+# 4. Merge to develop first, then to main
+# 5. Every PR requires review from code owner
+# 6. Discuss API contracts before implementation
+#
+# Git Commands:
+#   git branch feature/auth-login             (for Dev 1)
+#   git branch feature/problem-crud            (for Dev 2)
+#   etc.
+# ================================================================================
+
