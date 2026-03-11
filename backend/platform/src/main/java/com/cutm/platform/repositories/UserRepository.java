@@ -15,4 +15,5 @@ public interface UserRepository extends MongoRepository<User, String> {
     Optional<User> findByUsername(String username);
     Page<User> findByRoleOrderByRankAsc(String role, Pageable pageable);
     List<User> findByStatusAndRole(String status, String role);
+    List<User> findByUsernameContaining(String username);
 }

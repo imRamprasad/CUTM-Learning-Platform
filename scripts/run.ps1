@@ -32,8 +32,8 @@ Write-Host "Backend starting on http://localhost:8080" -ForegroundColor Green
 
 Write-Step "Starting frontend (React)"
 
-Start-Process powershell -ArgumentList "-NoExit","-Command","cd $FrontendPath; npm start"
+Start-Process powershell -ArgumentList "-NoExit","-Command","cd $FrontendPath; npm run dev"
 
-Write-Host "Frontend starting on http://localhost:3000" -ForegroundColor Green
+Write-Host "Frontend starting on http://localhost:5173" -ForegroundColor Green
 
 Write-Step "Project started successfully"

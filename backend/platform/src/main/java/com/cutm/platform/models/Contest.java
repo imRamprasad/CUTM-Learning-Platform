@@ -51,35 +51,3 @@ public class Contest {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-class ProblemRef {
-    private String problemId;
-    private Integer points;
-    private Integer sequenceNumber;
-}
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-class ContestStanding {
-    private String rank;
-    private String userId;
-    private String userName;
-    private Integer totalPoints;
-    private Long totalTime; // time penalty in seconds
-    private List<SolvedProblem> solvedProblems;
-}
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-class SolvedProblem {
-    private String problemId;
-    private String status; // ACCEPTED, WRONG_ANSWER, etc
-    private Integer points;
-    private Long submissionTime;
-    private Integer attempts;
-}
