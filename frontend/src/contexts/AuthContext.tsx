@@ -95,6 +95,24 @@ function mapBackendUser(backendUser: BackendUser): User {
   };
 }
 
+function getApiErrorMessage(error: any, fallback: string): string {
+  const responseData = error?.response?.data;
+
+  if (typeof responseData?.message === 'string' && responseData.message.trim()) {
+    return responseData.message;
+  }
+
+  if (typeof responseData === 'string' && responseData.trim()) {
+    return responseData;
+  }
+
+  if (!error?.response) {
+    return 'Cannot reach backend server. Please ensure backend is running on http://localhost:8080.';
+  }
+
+  return fallback;
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(() => readPersistedUser());
 
@@ -128,7 +146,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       return { success: true };
     } catch (error: any) {
-      return { success: false, message: error.response?.data?.message || 'Login failed' };
+      return { success: false, message: getApiErrorMessage(error, 'Login failed') };
     }
   };
 
@@ -144,7 +162,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       return { success: true };
     } catch (error: any) {
-      return { success: false, message: error.response?.data?.message || 'Registration failed' };
+      return { success: false, message: getApiErrorMessage(error, 'Registration failed') };
     }
   };
 
@@ -164,7 +182,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       return { success: true };
     } catch (error: any) {
-      return { success: false, message: error.response?.data?.message || 'Admin registration failed' };
+      return { success: false, message: getApiErrorMessage(error, 'Admin registration failed') };
     }
   };
 
@@ -183,7 +201,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       persistUser(frontendUser);
       return { success: true };
     } catch (error: any) {
-      return { success: false, message: error.response?.data?.message || 'Login failed' };
+      return { success: false, message: getApiErrorMessage(error, 'Login failed') };
     }
   };
 

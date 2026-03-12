@@ -59,12 +59,10 @@ public class DatabaseSeeder implements CommandLineRunner {
     }
 
     private void seedUsers() {
-        if (userRepository.count() > 0) {
-            return;
-        }
-
         LocalDateTime now = LocalDateTime.now();
 
+        // Always ensure the demo admin account exists
+        if (userRepository.findByEmail("admin@codelearn.com").isEmpty()) {
         User admin = new User();
         admin.setEmail("admin@codelearn.com");
         admin.setUsername("admin");
@@ -81,7 +79,10 @@ public class DatabaseSeeder implements CommandLineRunner {
         admin.setRank(0);
         admin.setTotalPoints(0);
         userRepository.save(admin);
+        }
 
+        // Always ensure the demo student account exists
+        if (userRepository.findByEmail("student@codelearn.com").isEmpty()) {
         User student = new User();
         student.setEmail("student@codelearn.com");
         student.setUsername("student");
@@ -98,6 +99,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         student.setRank(15);
         student.setTotalPoints(480);
         userRepository.save(student);
+        }
     }
 
     private void seedCourses() {
