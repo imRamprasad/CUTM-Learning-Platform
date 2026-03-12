@@ -1,46 +1,30 @@
-# CUTM Learning Platform - Implementation Progress
+# Full-Stack Integration TODO
 
-## ✅ Completed Tasks
+## Status: Backend Ready [2/15 ✅]
 
-### Backend Implementation
-- [x] JWT Authentication with JwtTokenProvider
-- [x] JWT Authentication Filter
-- [x] Security Configuration with CORS
-- [x] Global Exception Handler
-- [x] Leaderboard Service & Controller
-- [x] Contest Service & Controller
-- [x] User Service
-- [x] Problem Service & Controller
-- [x] Submission Service & Controller
+### 1. Environment Setup ✅
+- [x] Created TODO.md
+- [x] MongoDB running (localhost:27017) ✓
 
-### Frontend Implementation
-- [x] Vite + React + TailwindCSS setup
-- [x] All Pages created:
-  - Home
-  - Login
-  - Register
-  - Dashboard
-  - Problems List
-  - Problem Detail with Monaco Editor
-  - Leaderboard
-  - Contest List
-  - Contest Detail
-  - Profile
-  - Admin Dashboard
-- [x] AuthContext with JWT handling
-- [x] Custom hooks
-- [x] Protected Route component
-- [x] Layout with navigation
+### 2. Backend Launch 🚀 [EXECUTING]
+- [ ] cd backend/platform && mvnw.cmd clean compile
+- [x] Configs verified:
+  - MongoDB: cutmlearning DB ✓
+  - CORS: localhost:5173 ✓
+  - JWT secret ✓
+  - Port 8080 ✓
+- [ ] mvnw.cmd spring-boot:run → Expect /api/auth/login etc.
 
-### Configuration
-- [x] Backend application.properties with JWT config
-- [x] Frontend vite.config.js with proxy
-- [x] TailwindCSS configuration
+### 3. Frontend [Pending]
+- [ ] npm i axios (frontend)
+- [ ] vite.config.ts proxy
+- [ ] api.ts + AuthContext real calls
+- [ ] Migrate mocks → API (Problems, Courses, etc.)
 
-## Next Steps (To Run the Project)
+### 4. Test Flow
+- [ ] Student login → problems → submit
+- [ ] Admin CRUD users/problems
 
-1. Install MongoDB and start it on localhost:27017
-2. Start Backend: `cd backend/platform && mvn spring-boot:run`
-3. Start Frontend: `cd frontend && npm run dev`
-4. Access: http://localhost:5173
+Progress: 2/15. Launching backend...
+
 

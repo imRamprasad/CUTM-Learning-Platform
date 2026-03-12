@@ -13,6 +13,9 @@ public interface SubmissionRepository extends MongoRepository<Submission, String
     List<Submission> findByUserIdAndProblemIdOrderBySubmittedAtDesc(String userId, String problemId);
     Page<Submission> findByUserId(String userId, Pageable pageable);
     Page<Submission> findByProblemId(String problemId, Pageable pageable);
+    Page<Submission> findByStatus(String status, Pageable pageable);
+    Page<Submission> findByUserIdAndStatus(String userId, String status, Pageable pageable);
+    List<Submission> findTop20ByUserIdOrderBySubmittedAtDesc(String userId);
     List<Submission> findByUserIdAndIsLatestTrue(String userId);
     Long countByUserIdAndStatus(String userId, String status);
     Long countByProblemIdAndStatus(String problemId, String status);
